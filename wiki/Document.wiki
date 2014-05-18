@@ -71,7 +71,7 @@ The accelerometer chip uses I2C bus to communicate with Arduino. So we should re
 
 ==8.Material list and estimate cost.==
 
-1). Arduino Mega --------------------------------------------$25.
+1). Arduino Mega -------------------------------------------$25.
 
 2). Accelerometer and gyro ----------------------------$3.
 
