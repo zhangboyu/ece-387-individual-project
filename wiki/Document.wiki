@@ -13,7 +13,7 @@
 
 ==This wiki page is organized into following sections.==
 ==1.General information about this project.==
-==2.Kinect and Processing.==
+==2.Kinect and Processing (optional).==
 ==3.Arduino Mega 2560 and TFT touch screen.==
 ==4.8*8 LED matrix.==
 ==5.Accelerometer.==
@@ -22,4 +22,8 @@
 *---------------------------------------------------------------------------------------------------------------------*
 ==1.General information about this project.==
 
-In this project, I built a tetris game based on Arduino Mega 2560, TFT touch screen, accelerometer, 8*8 LED matrix, and Kinect (optional). The idea to make a game on the LED matrix and accelerometer was came from one of the former students. He built a Snake game based on LED matrix and accelerometer for his individual project. 
+In this project, I built a tetris game based on Arduino Mega 2560, TFT touch screen, accelerometer, 8*8 LED matrix, and Kinect (optional). The idea to make a game on the LED matrix and accelerometer was came from one of the former students. He built a Snake game based on LED matrix and accelerometer for his individual project. I took his idea and add some other functionalities like level choose, score record, and Kinect control. Generally speaking, the Arduino Mega takes the input from accelerometer, TFT touch screen, and Processing (optional); does the computation work according to the game logic; send output to the 8*8 LED matrix and TFT touch screen. In the following sections, I'll go through every part one by one.
+
+==2.Kinect and Processing (optional).==
+
+If you are interesting about the complete version of this project and using Kinect to play this game, the second part of [https://code.google.com/p/ece-387-group-project-kinect-control/wiki/Document this] project may give you some useful information.
