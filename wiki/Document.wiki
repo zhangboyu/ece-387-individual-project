@@ -59,6 +59,12 @@ http://i1247.photobucket.com/albums/gg624/nyplatform1/Module/MPU6050-MS-3_zpse7b
 
 The accelerometer chip uses I2C bus to communicate with Arduino. So we should remember to include "Wire" library and "!I2Cdev" library into our code. Another library helped me a lot is the "MPU6050" library. An instance from this library can provide me the acceleration and angular acceleration on three axises. After been simply processed, these values can be used to determine the user input, thus control the game. 
 
+==6.Demo.==
+
+<wiki:video url="">
+
+(It is very hard to play this game with Kinect!)
+
 ==7.Possible improvement in future.==
 
 1). Buy a bigger LED matrix to improve the game experience.
