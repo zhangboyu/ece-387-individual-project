@@ -26,4 +26,12 @@ In this project, I built a tetris game based on Arduino Mega 2560, TFT touch scr
 
 ==2.Kinect and Processing (optional).==
 
+http://www.cngulu.com/wp-content/uploads/2013/11/kinect.jpg
+
 If you are interesting about the complete version of this project and using Kinect to play this game, the second part of [https://code.google.com/p/ece-387-group-project-kinect-control/wiki/Document this] project may give you some useful information.
+
+==3. Arduino Mega 2560 and TFT touch screen.==
+
+Just like our group project, the main idea behind this project is still finite state machine. It has three states, "TETRIS_LEVELCHOOSE," "TETRIS_GAME," and "TETRIS_GAMEOVER." In each of these three states, several functions are used to complete the game logic. All functions are written by myself, and I feel it is easy to figure out the purpose of each function. So I will not go through every functions at here, but I would like to talk about something I feel interesting in my program.
+
+1). The way I used to store the information about every piece is worth talking at here. I created a 19*9 array to store this kind of information. The 19 stands for the 19 kinds of piece in the game. The 9 values in each row hold the information about each piece and the index of next piece (the piece that the current piece will change into when you press the "up" button). Imagine a 4*4 grid, the first 8 values stand for the piece's relative location to the upper right corner, and the 9th value is the index of the next piece. For example, 
