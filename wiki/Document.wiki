@@ -17,8 +17,9 @@
 ==3.Arduino Mega 2560 and TFT touch screen.==
 ==4.8*8 LED matrix.==
 ==5.Accelerometer.==
-==6.Possible improvement in future.==
-==7.Material list and estimate cost.==
+==6.Demo.==
+==7.Possible improvement in future.==
+==8.Material list and estimate cost.==
 *---------------------------------------------------------------------------------------------------------------------*
 ==1.General information about this project.==
 
@@ -42,10 +43,40 @@ http://1.bp.blogspot.com/-M9Yh3479fxU/UArvLElXBpI/AAAAAAAAEPI/X3pv5Oweu3A/s1600/
 
 3). I used several timers to count time so that (1) pieces will not move so fast and (2) piece will not combine together immediately after they touch each other. 
 
-4). The Object "Point" in the SeeedTouchScreen library is very useful. It provided me a very easy to determine the point on the screen be touched. Thus to control the game logic.
+4). The Object "Point" in the !SeeedTouchScreen library is very useful. It provided me a very easy to determine the point on the screen be touched. Thus to control the game logic.
+
+5). Like the slide gesture I mentioned in the third part of our [https://code.google.com/p/ece-387-group-project-kinect-control/wiki/Document group project], I maintained two arrays and defined a threshold and use them to detect the slide gestures. For more information, please refer to the third part of our [https://code.google.com/p/ece-387-group-project-kinect-control/wiki/Document group project] and the code. 
 
 ==4.8*8 LED matrix.==
 
 http://g.search3.alicdn.com/img/bao/uploaded/i4/i4/T1LhRKFypXXXXXXXXX_!!0-item_pic.jpg_210x210.jpg
 
 I used a 8*8 LED matrix in this project because I just had one in hand. The performance would be much better if I have a larger one. The LED matrix is just some LEDs and a bunch of wires. What interesting is the chip that drive this matrix. The chip is Max7219, which usually been used to drive 8 7-segment numeric LED display, but it also can be used to drive 64 individual LEDs. The details of this chip can be found at [https://www.sparkfun.com/datasheets/Components/General/COM-09622-MAX7219-MAX7221.pdf here]. This chip only uses 3 pins of Arduino to control the LED matrix, which saves a lot of pins for us. However, due to this fact, I have to convert matrix format to the format that can be used by this chip. This work is done by "convert" function in my code.
+
+==5. Accelerometer.==
+
+http://i1247.photobucket.com/albums/gg624/nyplatform1/Module/MPU6050-MS-3_zpse7bea68a.jpg
+
+The accelerometer chip uses I2C bus to communicate with Arduino. So we should remember to include "Wire" library and "I2Cdev" library into our code. Another library helped me a lot is the "MPU6050" library. An instance from this library can provide me the acceleration and angular acceleration on three axises. After been simply processed, these values can be used to determine the user input, thus control the game. 
+
+==7.Possible improvement in future.==
+
+1). Buy a bigger LED matrix to improve the game experience.
+
+2). Improve the method that used to detect slide gestures. Make the detection more accurate. Improve the user experience. 
+
+3). Improve the method that used to handle the input from accelerometer. Make the detection more accurate. Improve the user experience. 
+
+4). Show the next piece on the touch screen.
+
+==8.Material list and estimate cost.==
+
+1). Arduino Mega --------------------------$25.
+
+2). Accelerometer and gyro -----------------------$3.
+
+3). SeeedStudio Touch Screen ---------------------$40.
+
+4). 8*8 LED matrix ---------------------------$2.
+
+5). Kinect for Windows (optional) ------------------$200.
