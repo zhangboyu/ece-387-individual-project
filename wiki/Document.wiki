@@ -34,4 +34,18 @@ If you are interesting about the complete version of this project and using Kine
 
 Just like our group project, the main idea behind this project is still finite state machine. It has three states, "TETRIS_LEVELCHOOSE," "TETRIS_GAME," and "TETRIS_GAMEOVER." In each of these three states, several functions are used to complete the game logic. All functions are written by myself, and I feel it is easy to figure out the purpose of each function. So I will not go through every functions at here, but I would like to talk about something I feel interesting in my program.
 
-1). The way I used to store the information about every piece is worth talking at here. I created a 19*9 array to store this kind of information. The 19 stands for the 19 kinds of piece in the game. The 9 values in each row hold the information about each piece and the index of next piece (the piece that the current piece will change into when you press the "up" button). Imagine a 4*4 grid, the first 8 values stand for the piece's relative location to the upper left corner, and the 9th value is the index of the next piece. For example, a row like this:  { 1,0,1,1,1,2,1,3,17 } stands for the shape like this:https://code.google.com/p/ece-387-individual-project/source/browse/QQ20140518-1%402x.jpg
+1). The way I used to store the information about every piece is worth talking at here. I created a 19*9 array to store this kind of information. The 19 stands for the 19 kinds of piece in the game. The 9 values in each row hold the information about each piece and the index of next piece (the piece that the current piece will change into when you press the "up" button). Imagine a 4*4 grid, the first 8 values stand for the piece's relative location to the upper left corner, and the 9th value is the index of the next piece. For example, a row like this: { 1,0,1,1,1,2,1,3,17 } stands for the shape on the right side of the picture below. A row like this:{ 0,1,1,1,2,1,3,1,16 } stands for the shape on the left side of the picture below. 
+
+http://1.bp.blogspot.com/-M9Yh3479fxU/UArvLElXBpI/AAAAAAAAEPI/X3pv5Oweu3A/s1600/Red+6.jpg
+
+2). After adopting the method mentioned above to store the information of every piece, it becomes easy to move pieces to every direction since the only thing I need to do is to change the coordinates  of the upper left corner. 
+
+3). I used several timers to count time so that (1) pieces will not move so fast and (2) piece will not combine together immediately after they touch each other. 
+
+4). The Object "Point" in the SeeedTouchScreen library is very useful. It provided me a very easy to determine the point on the screen be touched. Thus to control the game logic.
+
+==4.8*8 LED matrix.==
+
+http://g.search3.alicdn.com/img/bao/uploaded/i4/i4/T1LhRKFypXXXXXXXXX_!!0-item_pic.jpg_210x210.jpg
+
+I used a 8*8 LED matrix in this project because I just had one in hand. The performance would be much better if I have a larger one. The LED matrix is just some LEDs and a bunch of wires. What interesting is the chip that drive this matrix. The chip is Max7219, which usually been used to drive 8 7-segment numeric LED display, but it also can be used to drive 64 individual LEDs. The details of this chip can be found at [https://www.sparkfun.com/datasheets/Components/General/COM-09622-MAX7219-MAX7221.pdf here]. This chip only uses 3 pins of Arduino to control the LED matrix, which saves a lot of pins for us. However, due to this fact, I have to convert matrix format to the format that can be used by this chip. This work is done by "convert" function in my code.
