@@ -61,7 +61,7 @@ The accelerometer chip uses I2C bus to communicate with Arduino. So we should re
 
 ==6.Demo.==
 
-<wiki:video url="">
+<wiki:video url="https://www.youtube.com/watch?v=0wlryTrzoM4&feature=youtu.be">
 
 (It is very hard to play this game with Kinect!)
 
