@@ -3,12 +3,23 @@
 
 (All the resources I mentioned can be found in the "reference" page.)
 
-(The code is in the "Source"->"Browse" tab, but you need to switch the repository to "wiki".)
+(The code is in the "Source"->"Browse" tab.)
 
 (Processing code name: "draw_board.pde")
 
-(Arduino Mega code: "final_project_kinect_tetris.ino")(This code is the same code found in our group project, which has all the functionalities. Both Kinect and gyro can be used to play the tetris. But Kinect and Processing are required to start the game.)
+(Arduino Mega code: "final_project_kinect_tetris.ino")(This code is the same code found in our group project, which has all the functionalities. Both Kinect and accelerometer can be used to play the tetris. But Kinect and Processing are required to start the game.)
 
-(Arduino Mega code: "arduino_tetris.ino")(This code is an independent version of my project, which does not require Kinect and Processing to start the game. However, the game can only be controlled by gyro, not Kinect.)
+(Arduino Mega code: "arduino_tetris.ino")(This code is an independent version of my project, which does not require Kinect and Processing to start the game. However, the game can only be controlled by accelerometer, not Kinect.)
 
+==This wiki page is organized into following sections.==
+==1.General information about this project.==
+==2.Kinect and Processing.==
+==3.Arduino Mega 2560 and TFT touch screen.==
+==4.8*8 LED matrix.==
+==5.Accelerometer.==
+==6.Possible improvement in future.==
+==7.Material list and estimate cost.==
+*---------------------------------------------------------------------------------------------------------------------*
+==1.General information about this project.==
 
+In this project, I built a tetris game based on Arduino Mega 2560, TFT touch screen, accelerometer, 8*8 LED matrix, and Kinect (optional). The idea to make a game on the LED matrix and accelerometer was came from one of the former students. He built a Snake game based on LED matrix and accelerometer for his individual project. 
