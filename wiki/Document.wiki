@@ -57,7 +57,7 @@ I used a 8*8 LED matrix in this project because I just had one in hand. The perf
 
 http://i1247.photobucket.com/albums/gg624/nyplatform1/Module/MPU6050-MS-3_zpse7bea68a.jpg
 
-The accelerometer chip uses I2C bus to communicate with Arduino. So we should remember to include "Wire" library and "I2Cdev" library into our code. Another library helped me a lot is the "MPU6050" library. An instance from this library can provide me the acceleration and angular acceleration on three axises. After been simply processed, these values can be used to determine the user input, thus control the game. 
+The accelerometer chip uses I2C bus to communicate with Arduino. So we should remember to include "Wire" library and "!I2Cdev" library into our code. Another library helped me a lot is the "MPU6050" library. An instance from this library can provide me the acceleration and angular acceleration on three axises. After been simply processed, these values can be used to determine the user input, thus control the game. 
 
 ==7.Possible improvement in future.==
 
@@ -71,12 +71,12 @@ The accelerometer chip uses I2C bus to communicate with Arduino. So we should re
 
 ==8.Material list and estimate cost.==
 
-1). Arduino Mega --------------------------$25.
+1). Arduino Mega --------------------------------------------$25.
 
-2). Accelerometer and gyro -----------------------$3.
+2). Accelerometer and gyro ----------------------------$3.
 
-3). SeeedStudio Touch Screen ---------------------$40.
+3). !SeeedStudio Touch Screen -----------------------$40.
 
-4). 8*8 LED matrix ---------------------------$2.
+4). 8*8 LED matrix -----------------------------------------$2.
 
-5). Kinect for Windows (optional) ------------------$200.
+5). Kinect for Windows (optional) ---------------------$200.
