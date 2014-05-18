@@ -1,0 +1,14 @@
+=Document=
+(This page holds everything about this project except the code.)
+
+(All the resources I mentioned can be found in the "reference" page.)
+
+(The code is in the "Source"->"Browse" tab, but you need to switch the repository to "wiki".)
+
+(Processing code name: "draw_board.pde")
+
+(Arduino Mega code: "final_project_kinect_tetris.ino")(This code is the same code found in our group project, which has all the functionalities. Both Kinect and gyro can be used to play the tetris. But Kinect and Processing are required to start the game.)
+
+(Arduino Mega code: "arduino_tetris.ino")(This code is an independent version of my project, which does not require Kinect and Processing to start the game. However, the game can only be controlled by gyro, not Kinect.)
+
+
