@@ -1,0 +1,88 @@
+# Document #
+(This page holds everything about this project except the code.)
+
+(All the resources I mentioned can be found in the "reference" page.)
+
+(The code is in the "Source"->"Browse" tab.)
+
+(Processing code name: "draw\_board.pde")
+
+(Arduino Mega code: "final\_project\_kinect\_tetris.ino")(This code is the same code found in our group project, which has all the functionalities. Both Kinect and accelerometer can be used to play the tetris. But Kinect and Processing are required to start the game.)
+
+(Arduino Mega code: "arduino\_tetris.ino")(This code is an independent version of my project, which does not require Kinect and Processing to start the game. However, the game can only be controlled by accelerometer, not Kinect.)
+
+## This wiki page is organized into following sections. ##
+## 1.General information about this project. ##
+## 2.Kinect and Processing (optional). ##
+## 3.Arduino Mega 2560 and TFT touch screen. ##
+## 4.8\*8 LED matrix. ##
+## 5.Accelerometer. ##
+## 6.Demo. ##
+## 7.Possible improvement in future. ##
+## 8.Material list and estimate cost. ##
+**---------------------------------------------------------------------------------------------------------------------**
+## 1.General information about this project. ##
+
+In this project, I built a tetris game based on Arduino Mega 2560, TFT touch screen, accelerometer, 8\*8 LED matrix, and Kinect (optional). The idea to make a game on the LED matrix and accelerometer was came from one of the former students. He built a Snake game based on LED matrix and accelerometer for his individual project. I took his idea and add some other functionalities like level choose, score record, and Kinect control. Generally speaking, the Arduino Mega takes the input from accelerometer, TFT touch screen, and Processing (optional); does the computation work according to the game logic; send output to the 8\*8 LED matrix and TFT touch screen. In the following sections, I'll go through every part one by one.
+
+## 2.Kinect and Processing (optional). ##
+
+![http://www.cngulu.com/wp-content/uploads/2013/11/kinect.jpg](http://www.cngulu.com/wp-content/uploads/2013/11/kinect.jpg)
+
+If you are interesting about the complete version of this project and using Kinect to play this game, the second part of [this](https://code.google.com/p/ece-387-group-project-kinect-control/wiki/Document) project may give you some useful information.
+
+## 3. Arduino Mega 2560 and TFT touch screen. ##
+
+Just like our group project, the main idea behind this project is still finite state machine. It has three states, "TETRIS\_LEVELCHOOSE," "TETRIS\_GAME," and "TETRIS\_GAMEOVER." In each of these three states, several functions are used to complete the game logic. All functions are written by myself, and I feel it is easy to figure out the purpose of each function. So I will not go through every functions at here, but I would like to talk about something I feel interesting in my program.
+
+1). The way I used to store the information about every piece is worth talking at here. I created a 19\*9 array to store this kind of information. The 19 stands for the 19 kinds of piece in the game. The 9 values in each row hold the information about each piece and the index of next piece (the piece that the current piece will change into when you press the "up" button). Imagine a 4\*4 grid, the first 8 values stand for the piece's relative location to the upper left corner, and the 9th value is the index of the next piece. For example, a row like this: { 1,0,1,1,1,2,1,3,17 } stands for the shape on the right side of the picture below. A row like this:{ 0,1,1,1,2,1,3,1,16 } stands for the shape on the left side of the picture below.
+
+![http://1.bp.blogspot.com/-M9Yh3479fxU/UArvLElXBpI/AAAAAAAAEPI/X3pv5Oweu3A/s1600/Red+6.jpg](http://1.bp.blogspot.com/-M9Yh3479fxU/UArvLElXBpI/AAAAAAAAEPI/X3pv5Oweu3A/s1600/Red+6.jpg)
+
+2). After adopting the method mentioned above to store the information of every piece, it becomes easy to move pieces to every direction since the only thing I need to do is to change the coordinates  of the upper left corner.
+
+3). I used several timers to count time so that (1) pieces will not move so fast and (2) piece will not combine together immediately after they touch each other.
+
+4). The Object "Point" in the SeeedTouchScreen library is very useful. It provided me a very easy to determine the point on the screen be touched. Thus to control the game logic.
+
+5). Like the slide gesture I mentioned in the third part of our [group project](https://code.google.com/p/ece-387-group-project-kinect-control/wiki/Document), I maintained two arrays and defined a threshold and use them to detect the slide gestures. For more information, please refer to the third part of our [group project](https://code.google.com/p/ece-387-group-project-kinect-control/wiki/Document) and the code.
+
+## 4.8\*8 LED matrix. ##
+
+![http://g.search3.alicdn.com/img/bao/uploaded/i4/i4/T1LhRKFypXXXXXXXXX_!!0-item_pic.jpg_210x210.jpg](http://g.search3.alicdn.com/img/bao/uploaded/i4/i4/T1LhRKFypXXXXXXXXX_!!0-item_pic.jpg_210x210.jpg)
+
+I used a 8\*8 LED matrix in this project because I just had one in hand. The performance would be much better if I have a larger one. The LED matrix is just some LEDs and a bunch of wires. What interesting is the chip that drive this matrix. The chip is Max7219, which usually been used to drive 8 7-segment numeric LED display, but it also can be used to drive 64 individual LEDs. The details of this chip can be found at [here](https://www.sparkfun.com/datasheets/Components/General/COM-09622-MAX7219-MAX7221.pdf). This chip only uses 3 pins of Arduino to control the LED matrix, which saves a lot of pins for us. However, due to this fact, I have to convert matrix format to the format that can be used by this chip. This work is done by "convert" function in my code.
+
+## 5. Accelerometer. ##
+
+![http://i1247.photobucket.com/albums/gg624/nyplatform1/Module/MPU6050-MS-3_zpse7bea68a.jpg](http://i1247.photobucket.com/albums/gg624/nyplatform1/Module/MPU6050-MS-3_zpse7bea68a.jpg)
+
+The accelerometer chip uses I2C bus to communicate with Arduino. So we should remember to include "Wire" library and "I2Cdev" library into our code. Another library helped me a lot is the "MPU6050" library. An instance from this library can provide me the acceleration and angular acceleration on three axises. After been simply processed, these values can be used to determine the user input, thus control the game.
+
+## 6.Demo. ##
+
+<a href='http://www.youtube.com/watch?feature=player_embedded&v=0wlryTrzoM4' target='_blank'><img src='http://img.youtube.com/vi/0wlryTrzoM4/0.jpg' width='425' height=344 /></a>
+
+(It is very hard to play this game with Kinect!)
+
+## 7.Possible improvement in future. ##
+
+1). Buy a bigger LED matrix to improve the game experience.
+
+2). Improve the method that used to detect slide gestures. Make the detection more accurate. Improve the user experience.
+
+3). Improve the method that used to handle the input from accelerometer. Make the detection more accurate. Improve the user experience.
+
+4). Show the next piece on the touch screen.
+
+## 8.Material list and estimate cost. ##
+
+1). Arduino Mega -------------------------------------------$25.
+
+2). Accelerometer and gyro ----------------------------$3.
+
+3). SeeedStudio Touch Screen -----------------------$40.
+
+4). 8\*8 LED matrix -----------------------------------------$2.
+
+5). Kinect for Windows (optional) ---------------------$200.
